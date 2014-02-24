@@ -42,6 +42,7 @@ body{
 	left: 0;
 	z-index: 999999;
 	opacity:0.9;
+	min-width:1080px;
 }
 footer{
 	position: absolute;
@@ -60,6 +61,7 @@ div.clear{
 }
 h1.menu-top{
 	font-weight: 400;
+	float:left;
 }
 h1.menu-top a{
 	text-decoration:none;
@@ -73,4 +75,36 @@ h1.menu-top a{
 h1.menu-top a:hover{
 	color: #EC7063;
 	background:transparent;
+}
+/********************/
+/* MENU DE BUSQUEDA */
+/********************/
+ul.menu-title-logged{
+	float: right;
+	font-size: 20px;
+	margin-right: 53px;
+}
+ul.menu-title-logged li{
+	display:inline-block;
+}
+ul.menu-title-logged li a{
+	text-decoration:none;
+	font-weight:400;
+	transition: font-weight 0.5s;
+	-webkit-transition: font-weight 0.5s;
+}
+ul.menu-title-logged li a:hover{
+	font-weight:700;
+	background:transparent;
+	color:black;
+}
+ul.menu-title-logged li form input{
+	font-size: 15px;
+	padding: 2px 5px 2px 25px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	background: url('search-icon.png') no-repeat;
+	background-position: 5px 2px;
+	background-size: 15px 15px;
+	outline: none;
 }

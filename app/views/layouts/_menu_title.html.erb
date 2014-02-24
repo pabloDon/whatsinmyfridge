@@ -1,0 +1,5 @@
+<ul class="menu-title-logged">
+	<li><%= link_to "Nueva receta", new_recipe_path %></li>
+	<li><%= link_to "Mi libro de cocina", '#' %></li>
+	<li><%= form_tag "#" do %><%= text_field_tag "query" %><%= submit_tag "Search", :style=>"display:none" %><% end %></li>
+</ul>
