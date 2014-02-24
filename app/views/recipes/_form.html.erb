@@ -1,0 +1,35 @@
+
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2>Tienes que solucionar <%= pluralize(@recipe.errors.count, "error", "errores") %> antes de continuar:</h2>
+
+      <ul class="fa-ul">
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li>
+			<i class="fa fa-exclamation-triangle"></i>
+			<%= msg %>
+		</li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Título de la receta" %>
+  </div>
+
+  <%= f.fields_for :ingredients do |builder| %>
+	<%= render 'ingredient_fields', :f => builder %>
+  <% end -%>
+	
+  <p><%= link_to_add_fields "Nuevo ingrediente", f, :ingredients %></p>		
+
+  <div class="field">
+    <%= f.text_area :instructions, :placeholder => "Instrucciones" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>

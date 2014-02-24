@@ -1,0 +1,6 @@
+<div class="field-ingrediente">
+	<%= f.text_field :qty, :placeholder => "Cant.", :class=>"text_qty" %>
+	<%= f.select("measurement_id", Measurement.all.collect {|p| [ p.name, p.id ] }, { include_blank: false, :class=>"select_measure" }) %>
+	<%= f.text_field :name, :placeholder => "Ingrediente" %>
+	<%= link_to_remove_fields "<i class='fa fa-times'></i>".html_safe, f %>
+</div>
