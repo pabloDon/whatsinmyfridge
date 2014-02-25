@@ -1,0 +1,12 @@
+<div class="field">
+	<%= form.text_field :login, :placeholder => "Login" %>
+</div>
+<div class="field">
+	<%= form.password_field :password, :placeholder => form.object.new_record? ? "Password" : "Cambiar password" %>
+</div>
+<div class="field">
+	<%= form.password_field :password_confirmation %>
+</div>
+<% unless form.object.new_record? %>
+	<!-- Campos extra de usuario para panel de edición de usuario (Nombre, ciudad, foto, ...)>
+<% end %>

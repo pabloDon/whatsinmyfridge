@@ -1,0 +1,23 @@
+<div class="center-form">
+<%= form_for @user, :url => account_path do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>Tienes que solucionar <%= pluralize(@user.errors.count, "error", "errores") %> antes de continuar:</h2>
+
+      <ul class="fa-ul">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li>
+			<i class="fa fa-exclamation-triangle"></i>
+			<%= msg %>
+		</li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render :partial => "form", :object => f %>
+  <div class="actions">
+    <%= f.submit "Registro" %>
+  </div>
+<% end %>
+</div>

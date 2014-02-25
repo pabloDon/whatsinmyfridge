@@ -1,8 +1,14 @@
 Whatsinmyfridge::Application.routes.draw do
   root :to => 'static#index'
   
+  match 'hola' => "user_sessions#new", :as => :login
+  match 'adios' => "user_sessions#destroy", :as => :logout
+  
   resources :recipes
   resources :allergies
+  resource :account, :controller => "users"
+  resource :user_session
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

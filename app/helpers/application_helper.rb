@@ -10,9 +10,4 @@ module ApplicationHelper
     end
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")", :class=>"add_value_form")
   end
-
-
-  def current_user
-    true
-  end
 end
