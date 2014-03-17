@@ -87,4 +87,9 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search
+    @results = []
+    @results += Recipe.where('name LIKE ?',"%#{params[:query]}%")
+  end
 end

@@ -33,4 +33,7 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
+  
+  def favorite_recipes
+  end
 end

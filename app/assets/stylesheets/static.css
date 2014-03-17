@@ -2,6 +2,9 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+/*////////////////////////////////////////////////////////////////
+//							HOME PAGE							//
+////////////////////////////////////////////////////////////////*/
 .hsContainer {
     display: table;
     table-layout: fixed;
@@ -30,169 +33,73 @@
 }
 #slide-1 .bcg {background-image:url('bg1.jpg')}
 
-.comment-block{
+.one-content{
 	text-align:center;
-	background-color:black;
-	color:white;
-	line-height:75px;
-	font-size:35px;
-	font-style:italic;
+	margin:20px auto;
+	width: 800px;
 }
-
-.comment-block .comments{
-	margin:0 150px;
-	display:inline-block;
-	
+.one-content h2{
+	font-size:2rem;
 }
-.comment-block .ref{
-	position: relative;
-	font-size: 15px;
-	top: 15px;
+.one-content .cta-home{
+	margin:0 0 20px 0
 }
-.comment-block .ref:before{
-	content: "@";
-}
-.comment-block .ref a{
-	text-decoration:none;
-	color: #8D9389;
-}
-.comment-block .ref a:hover{
+.one-content .cta-home .sign-up-button{
+	font-size:130%;
+	font-weight:800;
+	text-decoration: none;
+	background-color: #EC7063;
+	padding: 5px 15px;
+	border-radius: 5px;
 	color: white;
 }
-.comment-widget{
-	margin-bottom: 15px;
+.one-content .slider{
+	margin: 15px 0;
 }
-.comment-widget .comment-even, .comment-widget .comment-odd{
-	width: 700px;
-	min-height: 120px;
-	margin-bottom: 15px;
+.one-content .slider ul li{
+	display:inline-block;
+	margin: 10px 15px;
 }
-.comment-widget .comment-even img,.comment-widget  .comment-odd img{
-	border-radius: 5px;
+.one-content .slider-chef ul li{
+	display:inline-block;
+	margin: 10px 15px;
+	width: 110px;
+}
+.one-content .slider ul li a,.one-content .slider-chef ul li a{
+	text-align:center;
+	text-decoration:none;
+}
+.one-content .slider ul li a:hover,.one-content .slider-chef ul li a:hover {
+    text-decoration: none;
+	background:transparent;
+    color: #2194A7;
+  }
+.one-content .slider ul li a img{
+	width: 150px;
+	height: 150px;
+}
+.one-content .slider-chef ul li a img{
 	width: 100px;
 	height: 100px;
+	transition: filter 0.5s;
+	transition: -webkit-filter 0.5s;
+	transition: -moz-filter 0.5s;
 }
-.comment-widget .comment-even img{
-	padding: 0 5px 0 0;
-	float:left;
+.one-content .slider-chef ul li a img:hover{
+	filter: gray;
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
 }
-.comment-widget .comment-even .comment .comment-header{
-	text-align:left;
-}
-.comment-widget .comment-even .comment .comment-header span{
-	margin-left: 5px;
-	color: #8D9389;
-}
-.comment-widget .comment-odd img{
-	padding: 0 0 0 5px;
-	float:right;
-}
-.comment-widget .comment-odd .comment .comment-header{
-	text-align:right;
-}
-.comment-widget .comment-odd .comment .comment-header span{
-	margin-left: 5px;
-	color: #8D9389;
-}
-.comment-widget .comment-odd .comment .text{
-	text-align:right;
-}
-.comment-widget form.form_comment textarea{
-	width: 680px;
-	height: 100px;
-	font-size: 15px;
-	padding: 10px;
-	margin-bottom: 5px;
-	border-radius: 5px;
-	border-color: #8D9389;
-	outline: none;
-}
-.comment-widget form.form_comment .actions{
-	text-align:right
-}
-.comment-widget form.form_comment .actions input[type="submit"]{
-	border: none;
-	border-radius: 5px;
-	background-color: #39D4F2;
-	font-size: 15px;
-	font-weight: 700;
-	padding: 5px 15px;
-	outline: none;
-}
-.comment-widget form.form_comment .actions input[type="submit"]:active{
-	background-color: #2194A7;
-	outline: none;
-}
-
-
-.content-recipe .left-content{
-	float:left;
-	display:inline-block;
-	margin: 15px 10px;
-	min-width: 700px;
-	max-width:700px;
-}
-.content-recipe .left-content .ingredients{
-	margin-top: 20px;
-}
-.content-recipe .left-content .ingredients ul li{		
-	line-height: 25px;
-	font-size: 18px;
-	margin-left:20px;
-}
-.content-recipe .left-content .process{
-	margin-top: 20px;
-}
-.content-recipe .left-content .process p{
-	margin-left: 20px;
-}
-.content-recipe .left-content .rating{
-	margin-top: 20px;
-}
-.content-recipe .left-content .comment-widget{
-	margin-top: 20px;
-}
-.content-recipe .right-content{
-	display:inline-block;
-	margin: 15px 10px;
-	width: 300px;
-}
-.content-recipe .right-content .chef-info img{
-	border-radius: 3px;
-	max-width: 80px;
-	max-height: 80px;
-}	
-.content-recipe .right-content .chef-info .chef-bio{
-	display:inline-block;
-}
-.content-recipe .right-content .chef-info .chef-bio h4{
-	font-weight: 800;
-}
-.content-recipe .right-content .chef-desc{
-	padding-top: 20px;
-	border-top: 1px solid #eee;
-	margin-top: 20px;
-	text-align:left;
-}
-.content-recipe .right-content .complement-recipes{
-	padding-top: 20px;
-	border-top: 1px solid #eee;
-	margin-top: 20px;
-}
-.content-recipe .right-content .complement-recipes .vertical-slider{
-	text-align:center;
-}
-.content-recipe .right-content .complement-recipes .vertical-slider a{
+.one-content .more { height: 30px}
+.one-content .more .more-button{
+	position: absolute;
+	right: 270px;
 	text-decoration:none;
+	background-color:transparent;
+	font-size:105%;
 }
-.content-recipe .right-content .complement-recipes .vertical-slider a:hover{
-	text-decoration:none;
-	color:#2194A7;
-}
-.content-recipe .right-content .complement-recipes .vertical-slider a img{
-	margin: 5px 0 0 0;
-}
-.content-recipe .right-content .complement-recipes .vertical-slider a p{
-	margin: 0 0 10px 0;
-	font-size: 20px;
+.one-content .more .more-button:hover{
+	background:transparent;
+    color: #EC7063;
 }

@@ -3,6 +3,10 @@ Whatsinmyfridge::Application.routes.draw do
   
   match 'hola' => "user_sessions#new", :as => :login
   match 'adios' => "user_sessions#destroy", :as => :logout
+  match 'chefs' => 'users#index', :as => :show_chefs
+  match 'chef/:nick' => 'users#show', :as => :show_chef
+  match 'my-recipes' => 'users#favorite_recipes', :as => :favorite_recipes
+  match 'search' => 'recipes#search', :as => :search_recipes
   
   resources :recipes
   resources :allergies
