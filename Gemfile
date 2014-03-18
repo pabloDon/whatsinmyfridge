@@ -8,6 +8,7 @@ gem 'rails', '3.2.17'
 gem 'skrollr-rails'
 gem 'font-awesome-rails'
 gem 'authlogic'
+gem 'slugged', '~> 2.0' # https://github.com/Sutto/slugged
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,11 +22,11 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  
+
   gem 'rdoc'
   gem 'annotate'
   gem 'rails-erd'
-  
+
   gem 'sqlite3'
 end
 
