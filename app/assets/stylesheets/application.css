@@ -104,6 +104,27 @@ ul.menu-title-logged li a:hover{
 	background:transparent;
 	color:black;
 }
+ul.menu-title-logged li#bio-chef img{
+	border-radius:3px;
+	border: 1px #eeeeee;
+	width: 20px;
+	height: 20px;
+}
+ul.menu-title-logged li#bio-chef ul{
+	display:none;
+}
+ul.menu-title-logged li#bio-chef:hover > ul{
+	display:block;	
+	position:absolute;
+}
+ul.menu-title-logged li#bio-chef ul li{
+	position:relative;
+	display:block;
+	left:-40px;
+	background-color:white;
+	opacity:0.9;
+	padding:5px 10px;
+}
 ul.menu-title-logged li form input{
 	font-size: 15px;
 	padding: 2px 5px 2px 25px;
