@@ -8,7 +8,7 @@ gem 'rails', '3.2.17'
 gem 'skrollr-rails'
 gem 'font-awesome-rails'
 gem 'authlogic'
-gem 'friendly_id', '~> 5.0.0' # https://github.com/norman/friendly_id - http://railscasts.com/episodes/314-pretty-urls-with-friendlyid
+gem 'friendly_id' # https://github.com/norman/friendly_id - http://railscasts.com/episodes/314-pretty-urls-with-friendlyid
 
 # Gems used only for assets and not required
 # in production environments by default.
