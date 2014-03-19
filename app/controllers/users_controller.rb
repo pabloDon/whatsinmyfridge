@@ -35,5 +35,7 @@ class UsersController < ApplicationController
   end
   
   def favorite_recipes
+    @title = @recipe_title = "Mi recetario"
+  
   end
 end

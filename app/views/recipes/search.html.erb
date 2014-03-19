@@ -1,2 +1,39 @@
-Estamos de búsqueda <%= @results.length%>
-<%= params[:query] %>
+<div class="left-form">
+	<div class="block-filter">
+		<h3>Filtros de búsqueda</h3>
+		<div class="widget">
+			<h4>Ingrediente principal</h4>
+			<%= text_field_tag "ingredient", nil%>
+		</div>
+		<div class="widget">
+			<h4>Valoración</h4>
+			<%= text_field_tag "evaluation", nil%>
+		</div>
+		<div class="widget">
+			<h4>Fotografía</h4>
+			<%= text_field_tag "photo", nil%>
+		</div>
+		<div class="widget">
+			<h4>Chef</h4>
+			<%= text_field_tag "chef", nil%>
+		</div>
+	</div>
+	<div class="block-results">
+		<h1>Resultados para: <i><%= params[:query] %></i></h1>
+		<div class="results">
+			<% if @results.length == 0 %>
+			<h3 class="no-results">Ups! No tenemos ninguna receta así :(</h3>
+			<%= form_tag search_recipes_path do %>
+				<%= text_field_tag "query" %>
+				<%= submit_tag "Search", :style=>"display:none" %>
+			<% end %>
+			<h3 class="no-results-sub">...o puedes...</h3>
+			<%= link_to "¡Publicar tu receta!", new_recipe_path, :class => "publish-recipe" %>
+			<% else %>
+				<% @results.each do |recipe| %>
+					<%= render partial: 'recipe_excerpt', locals: {receta: recipe} %>
+					<%= render partial: 'recipe_excerpt', locals: {receta: recipe} %>
+				<% end %>
+			<% end %>
+	</div>
+</div>

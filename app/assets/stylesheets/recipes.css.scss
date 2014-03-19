@@ -101,7 +101,113 @@
 		}
 	}
 }
-
+//////////////////////////////////////////////////////////////////
+//						SEARCH RECIPE							//
+//////////////////////////////////////////////////////////////////
+.left-form{
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 60px;
+	width: 1024px;
+	.block-results{
+		display:inline-block;
+		.results{
+			// NO RESULTS
+			h3.no-results{
+				margin-top: 150px;
+				font-weight: 400;
+				margin-bottom: 50px;
+			}
+			h3.no-results-sub{
+				font-weight: 400;
+				margin-bottom: 25px;
+			}
+			a.publish-recipe{
+				font-size: 130%;
+				font-weight: 800;
+				text-decoration: none;
+				background-color: #EC7063;
+				padding: 5px 15px;
+				border-radius: 5px;
+				color: white;
+			}
+			form{
+				input#query{
+					font-size: 2em;
+					padding: 5px 10px 5px 30px;
+					border: 1px solid lightgray;
+					border-radius: 5px;
+					background: url('search-icon.png') no-repeat;
+					background-position: 6px 6px;
+					background-size: 20px 20px;
+					outline: none;
+					margin-bottom: 25px;
+				}
+			}
+			//SEARCH FOUND
+			.recipe-excerpt{
+				display: block;
+				margin: 15px 0;
+				height: 100px;
+				border-bottom: 1px solid #eee;
+				width:600px;
+				.photo img{
+					max-width: 100px;
+					float: left;
+					max-height: 100px;
+				}
+				.info{
+					h3{
+						a{
+							text-decoration:none;
+							&:hover{
+								background-color:transparent;
+								color: #2194A7;
+							};
+						}
+					}
+					text-align: left;
+					margin-left: 12px;
+					width: 400px;
+					display: inline-block;
+					p:last-child{
+						margin-top:5px;
+						margin-left:10px;
+					}
+				}
+				.rating{
+					display: inline-block;
+					float: right;
+					margin-top: 20px;
+					h2{
+						font-size: 3em;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+	}
+	.block-filter{
+		display:inline-block;
+		float:left;
+		text-align:left;
+		border-right: 1px solid #eee;
+		padding-right: 15px;
+		.widget{
+			padding:10px;
+			h4{
+				font-size: 120%;
+				text-align: center;
+			}
+			input{
+				width: 100%;
+				font-size: 15px;
+				padding: 5px;
+				margin-top: 5px;
+			}
+		}
+	}
+}
 
 //////////////////////////////////////////////////////////////////
 //							SHOW RECIPE							//
