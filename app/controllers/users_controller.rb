@@ -21,7 +21,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = @current_user
+    if @current_user
+      @user = @current_user
+    else
+      redirect_to login_url
+    end
   end
 
   def update

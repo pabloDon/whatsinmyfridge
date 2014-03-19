@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_filter :require_user, :only => [:new, :create, :edit, :update, :destroy]
+
   # GET /recipes
   # GET /recipes.json
   def index
@@ -48,6 +50,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(params[:recipe])
+    @recipe.user_id = current_user.id
 
     respond_to do |format|
       if @recipe.save

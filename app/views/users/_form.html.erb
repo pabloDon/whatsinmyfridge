@@ -7,10 +7,27 @@
 <div class="field">
     <%= form.password_field :password_confirmation, :placeholder => form.object.new_record? ? " Confirmar Password" : "Confirmar nuevo password"%>
 </div>
+
 <% if form.object.new_record? %>
-<div class="field">
-    <%= link_to "Iniciar sesión", login_path %>
-</div>
+
+	<div class="field">
+    	<%= link_to "Iniciar sesión", login_path %>
+	</div>
+
 <% else %>
-    <!-- Campos extra de usuario para panel de edición de usuario (Nombre, ciudad, foto, ...)>
+
+    <!-- Campos extra de usuario para panel de edición de usuario (Nombre, ciudad, foto, ...)-->
+	<div class="field">
+	    <%= form.text_field :name, :placeholder => "Nombre" %>
+	</div>
+	<div class="field">
+	    <%= form.text_field :city, :placeholder => "Ciudad" %>
+	</div>	
+	<div class="field">
+	    <%= form.text_area :bio, :placeholder => "Acerca de ti" %>
+	</div>
+	<div class="field">
+	    <%= link_to "Ver perfill público", '#' %>
+	</div>
+
 <% end %>

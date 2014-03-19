@@ -7,6 +7,7 @@ Whatsinmyfridge::Application.routes.draw do
   match 'chef/:nick' => 'users#show', :as => :show_chef
   match 'my-recipes' => 'users#favorite_recipes', :as => :favorite_recipes
   match 'search' => 'recipes#search', :as => :search_recipes
+  match 'cuisine' => 'users#edit', :as => :profile
   
   resources :recipes
   resources :allergies

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224235645) do
+ActiveRecord::Schema.define(:version => 20140319224521) do
 
   create_table "allergies", :force => true do |t|
     t.integer  "ingredient_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20140224235645) do
     t.integer  "global_rating"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
   end
 
   create_table "user_sessions", :force => true do |t|
@@ -61,8 +62,15 @@ ActiveRecord::Schema.define(:version => 20140224235645) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "perishable_token"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "twitter_profile"
+    t.string   "facebook_profile"
+    t.string   "youtube_profile"
+    t.string   "google_plus_profile"
+    t.string   "name"
+    t.text     "bio"
+    t.string   "city"
   end
 
 end
