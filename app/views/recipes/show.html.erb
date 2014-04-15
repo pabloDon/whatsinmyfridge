@@ -1,120 +1,141 @@
 <section id="slide-1" class="homeSlide">
     <div class="bcg"
         data-center="background-position: 50% 0px;"
-		data-top-bottom="background-position: 50% -100px;"
-		data-anchor-target="#slide-1"
-		style="height:600px">
+        data-top-bottom="background-position: 50% -100px;"
+        data-anchor-target="#slide-1"
+        style="height:600px">
         <div class="hsContainer">
             <div class="hsContent"
                 data-center="opacity: 1"
-				data-106-top="opacity: 0"
-				data-anchor-target="#slide-1 h2">
+                data-106-top="opacity: 0"
+                data-anchor-target="#slide-1 h2">
                 <h2><%= @recipe.name %></h2>
             </div>
         </div>
     </div>
 </section>
 <div class="comment-block">
-	<div>
-		<p class="comment">
-			<%= @random_testimony || "Lorem ipsum con la salsa! Es lo más dolor sit amet que he visto"%>
-			
-			<span class="ref"><a href="#"><%= @random_testimony.user.name if @random_testimony %></a></span>
-		</p>
-	</div>
+    <div>
+        <p class="comment">
+            <%= @random_testimony || "Lorem ipsum con la salsa! Es lo más dolor sit amet que he visto"%>
+
+            <span class="ref"><a href="#"><%= @random_testimony.user.name if @random_testimony %></a></span>
+        </p>
+    </div>
 </div>
 <div class="content-recipe">
-	<div class="left-content">
-		<div id="slider">
-			<img src="http://lorempixel.com/output/food-q-c-200-200-2.jpg">
-			<img src="http://lorempixel.com/output/food-q-c-200-200-10.jpg"> 
-			<img src="http://lorempixel.com/output/food-q-c-200-200-1.jpg">  
-			<!--<img src="http://lorempixel.com/output/food-q-c-200-200-6.jpg">  -->
-		</div>
-		<div class="ingredients">
-			<h2>Ingredientes:</h2>
-			<ul class="fa-ul">
-				<% @recipe.ingredients.each do |ingredient| %>
-					<li>
-						<i class="fa-li fa fa-check"></i>
-						<%= ingredient.qty %> <% ingredient.measurement%> de <%= ingredient.name %>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-		<div class="process">
-			<h2>Proceso:</h2>
-			<%= "<p>+ #{@recipe.instructions.gsub('\\n','</p><div class="clear"></div><p>')} ".html_safe %>
-		</div>
-		<div class="rating">
-			<h2>Evaluación</h2>
-			<ul>
-				<% if @recipe.global_rating %>
-				<li>
-					<% @recipe.global_rating.times do |star| %>
-					<i class="fa fa-star"></i>
-					<% end %>
-				</li>
-				<li><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-				<% end %>
-			</ul>
-		</div>
-		<div class="comment-widget">
-			<h2>Opiniones</h2>
-			<div class="comment-even">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/BillSKenney/128.jpg">
-				<div class="comment">
-					<p class="comment-header">Luigi<span>2013-02-01</span></p>
-					<p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis</p>
-				</div>
-			</div>
-			<div class="comment-odd">
-				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/divya/128.jpg">
-				<div class="comment">
-					<p class="comment-header">Luigi<span>2013-02-01</span></p>
-					<p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis</p>
-				</div>
-			</div>
-			
-			<%= form_tag "#", :class=>"form_comment" do %>
-				<%= text_area_tag "comment" %>
-				<div class="actions">
-					<%= submit_tag "Enviar" %>
-				</div>
-			<% end %>
-		</div>
-	</div>
-	
-	
-	<div class="right-content">
-		<div class="chef-info">
-			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/madysondesigns/128.jpg">
-			<div class="chef-bio">
-				<h4>Name:</h4>
-				<p><%= link_to @recipe.chef.name, '#' %></p>
-				<h4>City</h4>
-				<p><%= @recipe.chef.city %></p>
-			</div>
-		</div>
-		<div class="chef-desc">
-			<p><%= @recipe.chef.bio[0..500] if @recipe.chef.bio %></p>
-		</div>
-		<div class="complement-recipes">
-			<h3>Compleméntalo con...</h3>
-			<div class="vertical-slider">
-				<a href="#">
-					<img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-					<p>Lorem pix</p>
-				</a>
-				<a href="#">
-					<img src="http://lorempixel.com/output/food-q-c-200-200-3.jpg">
-					<p>Lorem pix</p>
-				</a>
-				<a href="#">
-					<img src="http://lorempixel.com/output/food-q-c-200-200-7.jpg">
-					<p>Lorem pix</p>
-				</a>
-			</div>
-		</div>
-	</div>
+    <div class="left-content">
+
+        <div class="flexslider" id="slider">
+          <ul class="slides">
+            <li>
+              <img src="http://lorempixel.com/output/food-q-c-200-200-2.jpg">
+            </li>
+            <li>
+              <img src="http://lorempixel.com/output/food-q-c-200-200-10.jpg">
+            </li>
+            <li>
+              <img src="http://lorempixel.com/output/food-q-c-200-200-1.jpg">
+            </li>
+            <li>
+              <img src="http://lorempixel.com/output/food-q-c-200-200-6.jpg">
+            </li>
+          </ul>
+        </div>
+
+        <div class="ingredients">
+            <h2>Ingredientes:</h2>
+            <ul class="fa-ul">
+                <% @recipe.ingredients.each do |ingredient| %>
+                    <li>
+                        <i class="fa-li fa fa-check"></i>
+                        <%= ingredient.qty %> <%= ingredient.measurement.name %> de <%= ingredient.name %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="process">
+            <h2>Proceso:</h2>
+            <p>
+                <%= simple_format(@recipe.instructions) %>
+            </p>
+        </div>
+        <div class="rating">
+            <h2>Evaluación</h2>
+            <ul>
+                <% if @recipe.global_rating %>
+                <li>
+                    <% @recipe.global_rating.times do |star| %>
+                    <i class="fa fa-star"></i>
+                    <% end %>
+                </li>
+                <li><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="comment-widget">
+            <h2>Opiniones</h2>
+            <div class="comment-even">
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/BillSKenney/128.jpg">
+                <div class="comment">
+                    <p class="comment-header">Luigi<span>2013-02-01</span></p>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis</p>
+                </div>
+            </div>
+            <div class="comment-odd">
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/divya/128.jpg">
+                <div class="comment">
+                    <p class="comment-header">Luigi<span>2013-02-01</span></p>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis</p>
+                </div>
+            </div>
+
+            <%= form_tag "#", :class=>"form_comment" do %>
+                <%= text_area_tag "comment" %>
+                <div class="actions">
+                    <%= submit_tag "Enviar" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+
+    <div class="right-content">
+        <div class="chef-info">
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/madysondesigns/128.jpg">
+            <div class="chef-bio">
+                <h4>Name:</h4>
+                <p><%= link_to @recipe.chef.name.blank?? @recipe.chef.login : @recipe.chef.name, '#' %></p>
+                <h4>City:</h4>
+                <p><%= @recipe.chef.city if @recipe.chef.city %></p>
+            </div>
+        </div>
+        <div class="chef-desc">
+            <p>
+                <%=  if @recipe.chef.bio
+                        @recipe.chef.bio[0..500] if @recipe.chef.bio
+                     else
+                        "Sin biografía"
+                     end
+                %>
+            </p>
+        </div>
+        <div class="complement-recipes">
+            <h3>Compleméntalo con...</h3>
+            <div class="vertical-slider">
+                <a href="#">
+                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
+                    <p>Lorem pix</p>
+                </a>
+                <a href="#">
+                    <img src="http://lorempixel.com/output/food-q-c-200-200-3.jpg">
+                    <p>Lorem pix</p>
+                </a>
+                <a href="#">
+                    <img src="http://lorempixel.com/output/food-q-c-200-200-7.jpg">
+                    <p>Lorem pix</p>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

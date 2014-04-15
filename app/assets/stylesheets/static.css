@@ -3,7 +3,7 @@
   They will automatically be included in application.css.
 */
 /*////////////////////////////////////////////////////////////////
-//							HOME PAGE							//
+//                          HOME PAGE                           //
 ////////////////////////////////////////////////////////////////*/
 .hsContainer {
     display: table;
@@ -12,7 +12,10 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    opacity: 0;
+/*    opacity: 0;*/
+}
+.hsContainer h2{
+    color:black;
 }
 .hsContent {
     max-width: 850px;
@@ -34,72 +37,81 @@
 #slide-1 .bcg {background-image:url('bg1.jpg')}
 
 .one-content{
-	text-align:center;
-	margin:20px auto;
-	width: 800px;
+    text-align:center;
+    margin:20px auto;
+    width: 800px;
 }
 .one-content h2{
-	font-size:2rem;
+    font-size:2rem;
 }
 .one-content .cta-home{
-	margin:0 0 20px 0
+    margin:0 0 20px 0
 }
 .one-content .cta-home .sign-up-button{
-	font-size:130%;
-	font-weight:800;
-	text-decoration: none;
-	background-color: #EC7063;
-	padding: 5px 15px;
-	border-radius: 5px;
-	color: white;
+    font-size:130%;
+    font-weight:800;
+    text-decoration: none;
+    background-color: #EC7063;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
 }
 .one-content .slider{
-	margin: 15px 0;
+    margin: 15px 0;
 }
 .one-content .slider ul li{
-	display:inline-block;
-	margin: 10px 15px;
+    display:inline-block;
+    margin: 10px 15px;
 }
 .one-content .slider-chef ul li{
-	display:inline-block;
-	margin: 10px 15px;
-	width: 110px;
+    display:inline-block;
+    margin: 10px 15px;
+    width: 110px;
 }
 .one-content .slider ul li a,.one-content .slider-chef ul li a{
-	text-align:center;
-	text-decoration:none;
+    text-align:center;
+    text-decoration:none;
 }
 .one-content .slider ul li a:hover,.one-content .slider-chef ul li a:hover {
     text-decoration: none;
-	background:transparent;
+    background:transparent;
     color: #2194A7;
   }
 .one-content .slider ul li a img{
-	width: 150px;
-	height: 150px;
+    width: 150px;
+    height: 150px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
+.one-content .slider ul li a img:hover{
+  -webkit-filter: blur(2px);
+}
+
 .one-content .slider-chef ul li a img{
-	width: 100px;
-	height: 100px;
-	transition: filter 0.5s;
-	transition: -webkit-filter 0.5s;
-	transition: -moz-filter 0.5s;
+    width: 100px;
+    height: 100px;
+    transition: filter 0.5s;
+    transition: -webkit-filter 0.5s;
+    transition: -moz-filter 0.5s;
 }
 .one-content .slider-chef ul li a img:hover{
-	filter: gray;
-	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
+    filter: gray;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
 }
 .one-content .more { height: 30px}
 .one-content .more .more-button{
-	position: absolute;
-	right: 270px;
-	text-decoration:none;
-	background-color:transparent;
-	font-size:105%;
+    position: absolute;
+    right: 270px;
+    text-decoration:none;
+    background-color:transparent;
+    font-size:105%;
 }
 .one-content .more .more-button:hover{
-	background:transparent;
+    background:transparent;
     color: #EC7063;
 }

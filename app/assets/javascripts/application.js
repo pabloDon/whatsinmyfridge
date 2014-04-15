@@ -11,9 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require skrollr
-//= require jquery.bxslider
 //= require jquery
 //= require jquery_ujs
+//= requirejquery.flexslider
 //= require_tree .
 function remove_fields(link) {
         $(link).prev("input[type=hidden]").val("1");

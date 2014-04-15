@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     @title = "Recetario | Mmmm!"
     @recipe_title = "Recetario"
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recipes }
@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_title = @recipe.name
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recipe }
@@ -51,6 +51,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(params[:recipe])
     @recipe.user_id = current_user.id
+    @recipe.instructions.gsub!('\\n', '</br>')
 
     respond_to do |format|
       if @recipe.save
@@ -90,7 +91,7 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def search
     @title = "Resultados para #{params[:query]}"
     @recipe_title = params[:query]

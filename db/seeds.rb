@@ -19,3 +19,8 @@ Measurement.create(name: 'copa')
 Measurement.create(name: 'pocillo de café')
 Measurement.create(name: 'jarra')
 Measurement.create(name: 'vaso')
+
+LunchOption.create(name: 'Aperitivo')
+LunchOption.create(name: 'Primero')
+LunchOption.create(name: 'Segundo')
+LunchOption.create(name: 'Postre/cóctel')

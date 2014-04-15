@@ -7,9 +7,9 @@
       <ul class="fa-ul">
       <% @recipe.errors.full_messages.each do |msg| %>
         <li>
-			<i class="fa fa-exclamation-triangle"></i>
-			<%= msg %>
-		</li>
+            <i class="fa fa-exclamation-triangle"></i>
+            <%= msg %>
+        </li>
       <% end %>
       </ul>
     </div>
@@ -20,15 +20,18 @@
   </div>
 
   <%= f.fields_for :ingredients do |builder| %>
-	<%= render 'ingredient_fields', :f => builder %>
+    <%= render 'ingredient_fields', :f => builder %>
   <% end -%>
-	
-  <p><%= link_to_add_fields "Nuevo ingrediente", f, :ingredients %></p>		
+
+  <p><%= link_to_add_fields "Nuevo ingrediente", f, :ingredients %></p>
 
   <div class="field">
     <%= f.text_area :instructions, :placeholder => "Instrucciones" %>
   </div>
 
+  <div class="field">
+    <%= f.select("lunch_option_id", LunchOption.all.collect {|p| [ p.name, p.id ] }, { include_blank: false, :class=>"select_lunch_option" }) %>
+  </div>
   <div class="actions">
     <%= f.submit "Enviar" %>
   </div>
