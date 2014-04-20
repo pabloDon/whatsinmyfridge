@@ -1,0 +1,7 @@
+<div class="comment-<%= posicion %>">
+    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/BillSKenney/128.jpg">
+    <div class="comment">
+        <p class="comment-header"><%= comentario.user.login%><span><%= comentario.created_at.strftime '%d-%m-%Y' %></span></p>
+        <p class="text"><%= comentario.desc %></p>
+    </div>
+</div>

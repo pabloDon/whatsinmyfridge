@@ -7,6 +7,9 @@ class Recipe < ActiveRecord::Base
                   :lunch_option_id
   has_many :ingredients, through: :ingredient_recipes
   has_many :ingredient_recipes
+  has_many :comments
+  
+  has_many :favorites
   #has_many :ingredients, :dependent => :destroy
   belongs_to :chef, :class_name => 'User', :foreign_key => 'user_id'
   belongs_to :lunch_option, :class_name => 'LunchOption', :foreign_key => 'lunch_option_id'

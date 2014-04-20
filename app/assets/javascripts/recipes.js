@@ -32,6 +32,5 @@ $(document).ready(function() {
             move: 0,                        //{NEW} Integer: Number of carousel items that should move on animation. If 0, slider will move all visible items.
 
         });
-      });
-
+	});
 });

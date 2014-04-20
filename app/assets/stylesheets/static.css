@@ -15,8 +15,32 @@
 /*    opacity: 0;*/
 }
 .hsContainer h2{
-    color:black;
+	font-size: 90px;
+	line-height: 90px;
+	font-weight: 400;
+	color:black;
 }
+.hsContainer h3{
+	font-size: 45px;
+	color:black;
+	font-weight: 400;
+	line-height: 60px;
+}
+.hsContainer h3.superclick a{
+	font-size: 25px;
+	color:black;
+	padding: 5px 25px;
+	background-color: #39D4F2;
+	line-height: 30px;
+	display:inline-block;
+	border-radius: 3px;
+	text-decoration:none;
+}
+.hsContainer h3.superclick a:hover{
+	background-color: #2194A7;
+	color:white;
+}
+
 .hsContent {
     max-width: 850px;
     margin: -150px auto 0 auto;

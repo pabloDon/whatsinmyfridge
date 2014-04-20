@@ -20,5 +20,8 @@ class User < ActiveRecord::Base
                   :youtube_profile
                   
   has_many :recipes
+  has_many :comments
+  
+  has_many :favorites
 
 end

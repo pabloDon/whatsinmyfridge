@@ -1,13 +1,21 @@
 Whatsinmyfridge::Application.routes.draw do
+  get "favorites/switch"
+
+  get "comments/create"
+
   root :to => 'static#index'
   
   match 'hola' => "user_sessions#new", :as => :login
   match 'adios' => "user_sessions#destroy", :as => :logout
   match 'chefs' => 'users#index', :as => :show_chefs
   match 'chef/:nick' => 'users#show', :as => :show_chef
+  match 'public-profile' => 'users#public_profile', :as => :public_profile
   match 'my-recipes' => 'users#favorite_recipes', :as => :favorite_recipes
   match 'search' => 'recipes#search', :as => :search_recipes
   match 'cuisine' => 'users#edit', :as => :profile
+  
+  match 'create_comment/:recipe' => 'comments#create', :as => :create_comment
+  match 'switch_favorite/:recipe' => 'favorites#switch', :as => :favorite_recipe
   
   resources :recipes
   resources :allergies

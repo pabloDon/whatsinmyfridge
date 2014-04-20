@@ -1,1 +1,42 @@
-Mis recetas favoritas
+<div class="left-form">
+	<div class="block-filter">
+		<h3>Filtros de búsqueda</h3>
+		<div class="widget">
+			<h4>Ingrediente principal</h4>
+			<%= text_field_tag "ingredient", nil%>
+		</div>
+		<div class="widget">
+			<h4>Valoración</h4>
+			<%= text_field_tag "evaluation", nil%>
+		</div>
+		<div class="widget">
+			<h4>Fotografía</h4>
+			<%= text_field_tag "photo", nil%>
+		</div>
+		<div class="widget">
+			<h4>Chef</h4>
+			<%= text_field_tag "chef", nil%>
+		</div>
+	</div>
+	<div class="block-results">
+		<div class="results">
+			<div class="tabs">
+				<ul>
+					<li class="list-recipes"><a class="tab-recipes">Mis recetas</a></li>
+					<li class="list-favorites"><a class="tab-favorites">Mis perdiciones</a></li>
+				</ul>
+			</div>
+			<div class="my-recipes">
+				<h1>Mis recetas</h1>
+				<% @my_recipes.each do |recipe| %>
+					<%= render partial: 'recipes/recipe_excerpt', locals: {receta: recipe} %>
+				<% end %>
+			</div>
+			<div class="my-favorites" style="display:none">
+				<h1>Mis perdiciones</h1>
+				<% @my_favorite_recipes.each do |favorite| %>
+					<%= render partial: 'recipes/recipe_excerpt', locals: {receta: favorite.recipe} %>
+				<% end %>
+			</div>
+	</div>
+</div>

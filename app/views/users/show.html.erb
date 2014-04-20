@@ -1,6 +1,33 @@
-<p>
-  <b>Login:</b>
-  <%=h @user.login %>
-</p>
-
-<%= link_to 'Edit', edit_account_path %>
+<div class="profile-wrapper">
+	<div class="main-profile">
+		<div class="left-profile">
+			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/128.jpg">
+		</div>
+		<div class="right-profile">
+			<p><%= @user.login %></p>
+			<p class="chef-name"><%= @user.name %></p>
+			<p class="chef-city"><%= @user.city %></p>
+			<ul class="social-profile">
+				<% if @user.twitter_profile %>
+					<li><%= link_to image_tag('facebook.png'), @user.twitter_profile, :target=>'_blank' %></li>
+				<% end %>
+				<% if @user.facebook_profile %>
+					<li><%= link_to image_tag('twitter.png'), @user.facebook_profile, :target=>'_blank' %></li>
+				<% end %>
+				<% if @user.google_plus_profile %>
+					<li><%= link_to image_tag('googleplus.png'), @user.google_plus_profile, :target=>'_blank' %></li>
+				<% end %>
+				<% if @user.youtube_profile %>
+					<li><%= link_to image_tag('youtube.png'), @user.youtube_profile, :target=>'_blank' %></li>
+				<% end %>
+			</ul>
+			<p><%= simple_format(@user.bio) %></p>
+		</div>
+	</div>
+	<h3>Recetas publicadas por <%= @user.login %></h3>
+	<div class="list-recipes">
+		<% @user.recipes.each do |recipe| %>
+			<%= render partial: 'recipes/recipe_excerpt', locals: {receta: recipe} %>
+		<% end %>
+	</div>
+</div>

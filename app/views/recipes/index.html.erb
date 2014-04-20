@@ -1,27 +1,18 @@
 <h1>Listing recipes</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Instructions</th>
-    <th>Global rating</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<!-- FILTER -->
+<!-- END FILTER -->
+<!-- INDEX -->
 <% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.name %></td>
-    <td><%= recipe.instructions %></td>
-    <td><%= recipe.global_rating %></td>
-    <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<div class="recipe">
+		<div class="recipe-left">
+			<p><%= link_to recipe.name, recipe %></p>
+			<a src="#"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"></a>
+		</div>
+		<div class="recipe-right">
+			<a src="#"><img src="http://lorempixel.com/output/food-q-c-640-480-3.jpg"></a>
+		</div>
+	</div>
+	<div class="line-separator"></div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Recipe', new_recipe_path %>
+<!-- END INDEX -->

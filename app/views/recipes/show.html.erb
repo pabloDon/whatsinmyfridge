@@ -14,18 +14,59 @@
         </div>
     </div>
 </section>
+<% if @random_testimony %>
 <div class="comment-block">
     <div>
         <p class="comment">
-            <%= @random_testimony || "Lorem ipsum con la salsa! Es lo más dolor sit amet que he visto"%>
+            <%= @random_testimony.desc %>
 
-            <span class="ref"><a href="#"><%= @random_testimony.user.name if @random_testimony %></a></span>
+            <span class="ref"><a href="#"><%= @random_testimony.user.login %></a></span>
         </p>
     </div>
 </div>
+<% end %>
 <div class="content-recipe">
     <div class="left-content">
-
+		<div class="social">
+			<ul>
+				<% if @recipe.user_id != current_user.id %>
+				<li class="favorites">
+					<%= link_to image_tag('icon-favorite.png', :class=>["fav-image",@is_favorite ? "favorited" : "unfavorited"], :title=>@is_favorite ? "Eliminar de favoritos" : "Agregar a favoritos"), '#', :class=>"add-fav" %>
+				</li>
+				<script>
+					$(document).ready(function(){
+						$('.add-fav').click(function(e){
+							e.preventDefault();
+							$.getJSON( "<%= favorite_recipe_path(@recipe.id) %>", function( data ) {
+								var clases = $('.fav-image').attr('class').split(' ');
+								if (clases[1].equals('unfavorited')){
+									$('.fav-image').addClass('favorited');
+									$('.fav-image').removeClass('favorited');
+								}
+								else{
+									$('.fav-image').removeClass('favorited');
+									$('.fav-image').addClass('favorited');
+								}	
+							});
+						});
+					});
+				</script>
+				<% end %>
+				<li class="social-fav">
+					<ul>
+						<li><a class="fb_link" href="www.facebook.es" target="_blank"><%= image_tag "facebook.png" %></a></li>
+						<li><a class="tw_link" href="www.twitter.es" target="_blank"><%= image_tag "twitter.png" %></a></li>
+						<li><a class="pt_link" href="www.pinterest.es" target="_blank"><%= image_tag "pinterest.png" %></a></li>
+						<li><a class="gm_link" href="www.gmail.es" target="_blank"><%= image_tag "mail.png" %></a></li>
+					</ul>
+				</li>
+				<% if current_user.id == @recipe.user_id %>
+				<li class="edit-recipe">
+					<%= link_to "Editar receta", edit_recipe_path%>
+				</li> 
+				<% end %>
+			</ul>
+		</div>
         <div class="flexslider" id="slider">
           <ul class="slides">
             <li>
@@ -75,22 +116,17 @@
         </div>
         <div class="comment-widget">
             <h2>Opiniones</h2>
-            <div class="comment-even">
-                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/BillSKenney/128.jpg">
-                <div class="comment">
-                    <p class="comment-header">Luigi<span>2013-02-01</span></p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis</p>
-                </div>
-            </div>
-            <div class="comment-odd">
-                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/divya/128.jpg">
-                <div class="comment">
-                    <p class="comment-header">Luigi<span>2013-02-01</span></p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis</p>
-                </div>
-            </div>
+			<% if @recipe.comments %>
+				<% @recipe.comments.each_with_index do |comentario, indice| 
+					par_o_impar = ["even","odd"]
+					%>
+					<%= render 'comentario', :comentario => comentario, :posicion => par_o_impar[indice % 2] %>
+				<% end %>
+			<% else %>
+				<h3>Se el primero en opinar</h3>
+			<% end %>
 
-            <%= form_tag "#", :class=>"form_comment" do %>
+            <%= form_tag create_comment_path(@recipe.id), :class=>"form_comment" do %>
                 <%= text_area_tag "comment" %>
                 <div class="actions">
                     <%= submit_tag "Enviar" %>
@@ -105,7 +141,7 @@
             <img src="https://s3.amazonaws.com/uifaces/faces/twitter/madysondesigns/128.jpg">
             <div class="chef-bio">
                 <h4>Name:</h4>
-                <p><%= link_to @recipe.chef.name.blank?? @recipe.chef.login : @recipe.chef.name, '#' %></p>
+                <p><%= link_to @recipe.chef.name.blank?? @recipe.chef.login : @recipe.chef.name, user_path(@recipe.chef) %></p>
                 <h4>City:</h4>
                 <p><%= @recipe.chef.city if @recipe.chef.city %></p>
             </div>
@@ -123,18 +159,9 @@
         <div class="complement-recipes">
             <h3>Compleméntalo con...</h3>
             <div class="vertical-slider">
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-3.jpg">
-                    <p>Lorem pix</p>
-                </a>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-7.jpg">
-                    <p>Lorem pix</p>
-                </a>
+				<% @complementos.each do |plato| %>
+					<%= render 'mini_complemento', :plato => plato %>
+				<% end%>
             </div>
         </div>
     </div>

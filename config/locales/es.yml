@@ -1,0 +1,19 @@
+es:
+  authlogic:
+    error_messages:
+      login_blank: No puede estar vacío
+      login_not_found: No es válido
+      login_invalid: Sólo puedes usar letras, números, espacios y .-_@ por favor.
+      email_invalid: parece que el e-mail es inválido.
+      password_blank: no puede estar vacíocan not be blank
+      password_invalid: no es válido
+      no_authentication_details: You did not provide any details for authentication.
+      general_credentials_error: Login/Password combination is not valid
+    models:
+      user_session: UserSession (or whatever name you are using)
+    attributes:
+      user_session: (or whatever name you are using)
+      login: login
+      email: email
+      password: password
+      remember_me: remember me

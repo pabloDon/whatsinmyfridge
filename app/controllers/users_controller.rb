@@ -17,7 +17,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = @current_user
+    @user = User.find params[:id]
+    if @user == current_user
+      redirect_to public_profile_path
+    end
+  end
+  
+  def public_profile
+    @user = User.find current_user.id
+    render 'show'
   end
 
   def edit
@@ -40,6 +48,8 @@ class UsersController < ApplicationController
 
   def favorite_recipes
     @title = @recipe_title = "Mi recetario"
+    @my_recipes = Recipe.where(:user_id => current_user.id)
+    @my_favorite_recipes = Favorite.where(:user_id => current_user.id)
   end
 
   def index

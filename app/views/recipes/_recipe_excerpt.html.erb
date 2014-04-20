@@ -1,10 +1,10 @@
 <div class="recipe-excerpt">
 	<div class="photo">
-		<%= link_to image_tag("http://lorempixel.com/output/food-q-c-640-480-4.jpg"), recipe_path(receta) %>
+		<%= link_to image_tag("http://lorempixel.com/output/food-q-c-640-480-7.jpg"), recipe_path(receta) %>
 	</div>
 	<div class="info">
 		<h3><%= link_to receta.name, recipe_path(receta) %></h3>
-		<p>por: John Doe</p>
+		<p>por: <%= link_to receta.chef.login, receta.chef%></p>
 		<p><%= "#{receta.instructions[0..100]}#{'...' if receta.instructions.length > 100}" %></p>
 	</div>
 	<div class="rating">

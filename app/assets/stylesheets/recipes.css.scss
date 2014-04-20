@@ -117,6 +117,9 @@
     .block-results{
         display:inline-block;
         .results{
+			.my-favorites{
+				display:none;
+			}
             // NO RESULTS
             h3.no-results{
                 margin-top: 150px;
@@ -225,7 +228,7 @@
   overflow: hidden;
   position: relative;
 //  opacity: 0;
-  h2{color:#000000;}
+ 
 }
 
 .hsContent {
@@ -378,6 +381,64 @@
     .rating, .comment-widget {
       margin-top: 20px;
     }
+
+	.social{
+		ul{
+			li{
+				padding: 0;
+				list-style:none;
+				display: inline-block;
+				&.favorites{
+					padding-right: 15px;
+					a{
+						text-decoration: none;
+						background-color: transparent;
+						img{
+							width:30px;
+							&.favorited{
+								opacity: 1;
+								&:hover{
+									opacity:0.5;
+								}
+							}
+							&.unfavorited{
+								opacity:0.5;
+								&:hover{
+									opacity: 1;
+								}
+							}
+						}
+					}
+				}
+				&.social-fav{
+					ul{ 
+						padding: 0;
+						li{
+							display:inline-block;
+							padding: 0;
+							a{
+								text-decoration:none;
+								background-color: transparent;
+								img{ width: 30px;}
+							}
+						}
+					}
+				}
+				&.edit-recipe{
+					float: right;
+					line-height: 35px;
+					a{
+						background-color:transparent;
+						text-decoration:none;
+						font-size:1.2em;
+						&:hover{
+							color:#EC7063;
+						}
+					}
+				}
+			}
+		}
+	}
   }
   .right-content {
     display: inline-block;
@@ -394,6 +455,13 @@
         h4 {
           font-weight: 800;
         }
+ 		p a{
+			background: transparent;
+			text-decoration: none;
+			&:hover{
+				color: #EC7063;
+			}
+		}
       }
     }
     .chef-desc {
@@ -426,7 +494,7 @@
           }
           p {
             margin: 0 0 10px 0;
-            font-size: 20px;
+            font-size: 1.3em;
           }
         }
       }

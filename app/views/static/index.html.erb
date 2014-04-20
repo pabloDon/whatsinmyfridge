@@ -12,7 +12,9 @@
                 opacity="1"
                 data-anchor-target="#slide-1 h2"
             >
-                <h2>Sushi en pepitoria</h2>
+                <h2>Mmmm!</h2>
+				<h3>Únete a la mejor comunidad culinaria de la red</h3>
+				<h3 class="superclick"><%= link_to "Regístrate", new_user_path %></h3>
             </div>
         </div>
     </div>
@@ -22,30 +24,9 @@
     <h2>Hoy tenemos de primero...</h2>
     <div class="slider">
         <ul>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg" class="primero">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
+		<% @primero.each do |plato| %>
+			<%= render 'mini_profile', :plato => plato %>
+		<% end %>
         </ul>
     </div>
     <div class="more">
@@ -57,30 +38,9 @@
     <h2>...Seguido por...</h2>
     <div class="slider">
         <ul>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
+			<% @segundo.each do |plato| %>
+				<%= render 'mini_profile', :plato => plato %>
+			<% end %>
         </ul>
     </div>
     <div class="more">
@@ -92,30 +52,9 @@
     <h2>...Y terminamos con...</h2>
     <div class="slider">
         <ul>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="http://lorempixel.com/output/food-q-c-200-200-4.jpg">
-                    <p>Lorem pix</p>
-                </a>
-            </li>
+            <% @postre.each do |plato| %>
+				<%= render 'mini_profile', :plato => plato %>
+			<% end %>
         </ul>
     </div>
     <div class="more">

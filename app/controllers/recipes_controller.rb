@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authorize, :only => :edit
 
   # GET /recipes
   # GET /recipes.json
@@ -18,7 +19,10 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-    @recipe_title = @recipe.name
+    @title = @recipe_title = @recipe.name
+    @complementos = Recipe.where('lunch_option_id != ?',@recipe.lunch_option_id).sample(3)
+    @random_testimony = @recipe.comments.sample if @recipe.comments
+    @is_favorite = current_user ? Favorite.where(:recipe_id => @recipe.id, :user_id => current_user.id).length > 0 ? true : false : false
 
     respond_to do |format|
       format.html # show.html.erb
@@ -97,5 +101,19 @@ class RecipesController < ApplicationController
     @recipe_title = params[:query]
     @results = []
     @results += Recipe.where('name LIKE ?',"%#{params[:query]}%")
+  end
+  
+  def authorize
+    if current_user
+      recipe = Recipe.find params[:id]
+      if recipe.user_id != current_user.id
+        flash[:notice] = "Debes ser el chef para poder editar esta receta!"
+        redirect_to recipe
+      end
+    else
+      flash[:notice] = "Debes tener iniciada una sesiíon para acceder a esta página"
+      redirect_to new_user_session_url
+      return false
+    end
   end
 end
