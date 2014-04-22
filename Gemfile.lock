@@ -182,7 +182,7 @@ DEPENDENCIES
   friendly_id
   jquery-rails
   meta_request
-  pg (<= 0.9.0)
+  pg
   rails (= 3.2.17)
   rails-erd
   rdoc
